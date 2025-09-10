@@ -17,4 +17,7 @@ router.post('/', userController.createUser)
 
 // Criando uma rota que ira deletar um usuario
 router.delete('/:id', userController.deleteUser)
+
+// Criando uma rota que ira alterar um usuario
+router.put('/', userController.alterarUsuario)
 module.exports = router

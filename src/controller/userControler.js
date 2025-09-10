@@ -55,9 +55,22 @@ const deleteUser = (req, res) => {
     }
 }
 
+const alterarUsuario = (req, res) => {
+    //1° Passo - pegar os dados que foram enviados
+    const {id, name, email} = req.body
+
+    if (!id) {
+        return res.status(400).json({mensagem: "O id do Usuario é obrigatorio"})
+    } else {
+        const dataUser = userModel.updateUser({id, name, email})
+        res.status(200).json(dataUser)
+    }
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
     createUser,
-    deleteUser
+    deleteUser,
+    alterarUsuario
 }
